@@ -4,7 +4,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseName>5sDB</TargetDatabaseName>
     <DeployScriptFileName>5sDB.sql</DeployScriptFileName>
-    <TargetConnectionString>Server=five-sdb,1433;Database=5sDB;Integrated Security=False;User ID=SA;Password=123456@A;MultipleActiveResultSets=True;Trust Server Certificate=True</TargetConnectionString>
+    <TargetConnectionString>Data Source=db,1435;Initial Catalog=5sDB;User ID=SA;Password=123456@A;Trust Server Certificate=True</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>

@@ -1,12 +1,12 @@
 version: "3.8"
 
 services:
-  db:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+  sqlserver:
+    build: ./backend/5s_backend/5sDB
     volumes:
-      - data:/data/db
+      - data:/var/opt/mssql
     ports:
-      - "1433:1433"
+      - "1435:1433"
     env_file:
       - ./env/sqlserver.env
     networks:
@@ -19,9 +19,7 @@ services:
     networks:
       - five-s
     depends_on:
-      - db
-    volumes:
-      - ./backend/5s_backend/5sDB:/app/5sDB
+      - sqlserver
     container_name: five-sbackend
   frontend:
     build: ./frontend/5splus1-f1-07

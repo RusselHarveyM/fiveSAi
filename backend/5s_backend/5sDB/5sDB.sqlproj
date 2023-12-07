@@ -58,6 +58,14 @@
     <Folder Include="Properties" />
     <Folder Include="Table" />
   </ItemGroup>
+    <ItemGroup>
+    <None Include="Dockerfile" />
+    <None Include="5sDB.publish.xml" />
+    <None Include="5sDB.publish_1.xml" />
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+    <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
+  </Target>
   <ItemGroup>
     <Build Include="Table\Building.sql" />
     <Build Include="Table\Ratings.sql" />
@@ -68,7 +76,5 @@
     <Build Include="Table\Comments.sql" />
     <Build Include="Table\SpaceImage.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="5sDB.publish.xml" />
-  </ItemGroup>
+
 </Project>
