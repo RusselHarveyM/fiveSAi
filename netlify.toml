@@ -1,3 +1,0 @@
-[build]
-  command = "docker-compose -f ./docker-compose.yml up --build"
-  functions = "lambda"
