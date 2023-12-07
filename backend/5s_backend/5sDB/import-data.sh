@@ -1,4 +1,4 @@
-for i in {1..50};
+for i in {1..100};
 do
     /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 123456@A -d master -i schema.sql
     if [ $? -eq 0 ]
