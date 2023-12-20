@@ -345,7 +345,7 @@ PRINT N'Creating Table [dbo].[SpaceImage]...';
 
 GO
 CREATE TABLE [dbo].[SpaceImage] (
-    [Id]           INT             NOT NULL,
+    [Id]           INT             IDENTITY (1, 1) NOT NULL,
     [SpaceId]      INT             NOT NULL,
     [Image]        VARBINARY (MAX) NOT NULL,
     [UploadedDate] DATE            NOT NULL,

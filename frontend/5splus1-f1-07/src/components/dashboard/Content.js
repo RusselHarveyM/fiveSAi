@@ -35,8 +35,14 @@ const Content = ({
   const [refreshData, setRefreshData] = useState(false);
 
   const fetchContent = useCallback(async () => {
-    const response = await axios.get(url[0]);
-    return response.data;
+    let response;
+    try{
+     response = await axios.get(url[0]);
+    }catch(error)
+    {
+      console.log(error);
+    }
+    return response && Array.isArray(response.data) ? response.data : [];
   }, [url]);
 
   const addSpaceImage = useCallback(
@@ -59,7 +65,7 @@ const Content = ({
       if (isMore) {
         try {
           await axios
-            .get(`https://localhost:7124/api/spaceimage/get/${rowId}`)
+            .get(`http://localhost:7124/api/spaceimage/get/${rowId}`)
             .then((data) => {
               setImages(data);
               console.log(data);

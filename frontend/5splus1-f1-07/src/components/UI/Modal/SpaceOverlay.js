@@ -27,7 +27,7 @@ const Overlay = (props) => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        await axios.get(`https://localhost:7124/api/rooms`).then((data) => {
+        await axios.get(`http://localhost:7124/api/rooms`).then((data) => {
           setRooms(data.data);
         });
       } catch (error) {
@@ -60,15 +60,21 @@ const Overlay = (props) => {
     onConfirm();
   };
 
-  const onAddHandler = (event) => {
+  const onAddHandler = useCallback((event) => {
     event.preventDefault();
+  console.log("selected file", selectedFile);
     const data = {
       name: event.target[0].value,
       roomId: event.target[1].value,
+      pictures: [
+      {
+        "image": null,
+      }
+    ],
     };
     onCreate(data);
     onConfirm();
-  };
+  },[selectedFile]);
 
   if (status === "edit") {
     return (

@@ -30,7 +30,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://localhost:7124/api/buildings"
+          "http://localhost:7124/api/buildings"
         );
         setBuildingData(response.data);
       } catch (error) {

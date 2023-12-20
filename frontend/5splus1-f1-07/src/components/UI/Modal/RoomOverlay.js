@@ -17,7 +17,7 @@ const Overlay = memo(
       const fetchBuildings = async () => {
         try {
           await axios
-            .get(`https://localhost:7124/api/buildings`)
+            .get(`http://localhost:7124/api/buildings`)
             .then((data) => {
               setBuildings(data.data);
             });

@@ -14,7 +14,7 @@ const Rooms = () => {
     const fetchBuildingData = async () => {
       try {
         const response = await axios.get(
-          `https://localhost:7124/api/buildings/${params.buildingId}/building`
+          `http://localhost:7124/api/buildings/${params.buildingId}/building`
         );
         setBuildingData(response.data);
       } catch (error) {
@@ -27,7 +27,7 @@ const Rooms = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://localhost:7124/api/rooms");
+        const response = await axios.get("http://localhost:7124/api/rooms");
         setRoomData(
           response.data.filter(
             (data) => data.buildingId === parseInt(params.buildingId)

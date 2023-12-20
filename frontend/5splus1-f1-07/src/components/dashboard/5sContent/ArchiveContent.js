@@ -4,7 +4,7 @@ import Content from "../Content";
 import addIcon from "../../../static/images/add.png";
 
 const ArchiveContent = () => {
-  const urls = [`https://localhost:7124/api/ratings/`];
+  const urls = [`http://localhost:7124/api/ratings/`];
 
   const [archiveHeaders] = useState([
     { Header: "Id", accessor: "id" },

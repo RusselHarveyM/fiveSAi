@@ -11,7 +11,7 @@ const DashBoardContent = () => {
 
   const fetchRooms = async () => {
     try {
-      await axios.get(`https://localhost:7124/api/rooms`).then((response) => {
+      await axios.get(`http://localhost:7124/api/rooms`).then((response) => {
         setRoomsData(response.data);
       });
     } catch (error) {
@@ -44,22 +44,22 @@ const DashBoardContent = () => {
           </h2>
         </div>
         <div className={classes.buildingList}>
-          {buildingCtx.buildingData.map((building) => (
-            <NavLink key={building.id} to={`/${building.id}/rooms`}>
-              <Card className={classes.buildingCards} key={building.id}>
-                <div className={classes.buildingImageContainer}>
-                  <img
-                    src={`data:image/png;base64,${building.image}`}
-                    alt="Building preview"
-                  ></img>
-                </div>
-                <div className={classes.buildingTitle}>
-                  <h3>{building.buildingName}</h3>
-                </div>
-              </Card>
-            </NavLink>
-          ))}
+  {Array.isArray(buildingCtx?.buildingData) ? buildingCtx.buildingData.map((building) => (
+    <NavLink key={building.id} to={`/${building.id}/rooms`}>
+      <Card className={classes.buildingCards} key={building.id}>
+        <div className={classes.buildingImageContainer}>
+          <img
+            src={`data:image/png;base64,${building.image}`}
+            alt="Building preview"
+          ></img>
         </div>
+        <div className={classes.buildingTitle}>
+          <h3>{building.buildingName}</h3>
+        </div>
+      </Card>
+    </NavLink>
+  )) : null}
+</div>
       </div>
     </div>
   );
